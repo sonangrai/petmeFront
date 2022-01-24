@@ -14,5 +14,5 @@ export const theme = {
   fntWgtBold: "600",
 
   //Brand Font
-  brandFont: "Sedgwick Ave",
+  brandFont: "'Dancing Script', cursive",
 };
