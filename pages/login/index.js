@@ -19,14 +19,14 @@ const LoginPage = styled.div`
  * @returns Loign page
  */
 
-const index = ({ login }) => {
+const index = ({ login, auth }) => {
   return (
     <>
       <Meta title="Login - PetMe" />
       <LoginPage>
         <div>
           <Brand />
-          <Loginform loginDispatch={login} />
+          <Loginform loginDispatch={login} authData={auth} />
           <Bottom />
         </div>
       </LoginPage>

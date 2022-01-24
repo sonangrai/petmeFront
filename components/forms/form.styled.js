@@ -17,3 +17,14 @@ export const Input = styled.input.attrs((props) => ({
     outline: none;
   }
 `;
+
+/**
+ * Error Label
+ */
+export const ErrorLabel = styled.div`
+  color: ${({ theme }) => theme.danger};
+  font-size: 0.8em;
+  margin: 0.5em auto;
+  text-align: center;
+  max-width: 200px;
+`;

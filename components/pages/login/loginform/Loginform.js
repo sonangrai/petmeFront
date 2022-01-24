@@ -2,8 +2,9 @@ import { LoginForm, TheForm } from "./Loginform.styled";
 import FormItem from "../../../forms/FormItem";
 import { useState } from "react";
 import { PrimaryBtn } from "../../../button/Button.styled";
+import { ErrorLabel } from "../../../forms/form.styled";
 
-const Loginform = ({ loginDispatch }) => {
+const Loginform = ({ loginDispatch, authData }) => {
   const [data, setData] = useState({
     logtype: "",
     password: "",
@@ -18,7 +19,6 @@ const Loginform = ({ loginDispatch }) => {
   const submit = (e) => {
     e.preventDefault();
     loginDispatch(data);
-    console.log(data);
   };
 
   return (
@@ -41,6 +41,11 @@ const Loginform = ({ loginDispatch }) => {
         >
           Log In
         </PrimaryBtn>
+        {authData &&
+          authData?.authenticationError &&
+          authData?.authenticationError.status === 401 && (
+            <ErrorLabel>{authData?.authenticationError.msg}</ErrorLabel>
+          )}
       </TheForm>
     </LoginForm>
   );

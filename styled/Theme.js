@@ -7,6 +7,7 @@ export const theme = {
   black: "#000",
   grey: "#999696",
   lightGrey: "#c7c3c3",
+  danger: "#e10a0a",
 
   //Font Weights
   fntWgtLight: "300",
