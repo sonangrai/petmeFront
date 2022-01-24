@@ -1,5 +1,5 @@
-import { Axios } from "axios";
-let BASEURL = process.env.BACKEND_API;
+import Axios from "axios";
+let BASEURL = process.env.NEXT_PUBLIC_BACKEND_API;
 
 //Config
 const config = {

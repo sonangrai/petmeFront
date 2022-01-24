@@ -3,9 +3,9 @@ import FormItem from "../../../forms/FormItem";
 import { useState } from "react";
 import { PrimaryBtn } from "../../../button/Button.styled";
 
-const Loginform = () => {
+const Loginform = ({ loginDispatch }) => {
   const [data, setData] = useState({
-    typeAuth: "",
+    logtype: "",
     password: "",
   });
 
@@ -17,6 +17,7 @@ const Loginform = () => {
   //Submit form
   const submit = (e) => {
     e.preventDefault();
+    loginDispatch(data);
     console.log(data);
   };
 
@@ -26,7 +27,7 @@ const Loginform = () => {
         <FormItem
           type="text"
           placeholder="Email or Username"
-          name="typeAuth"
+          name="logtype"
           getData={attachData}
         />
         <FormItem
@@ -36,7 +37,7 @@ const Loginform = () => {
           getData={attachData}
         />
         <PrimaryBtn
-          disabled={data.typeAuth === "" || data.password === "" ? true : false}
+          disabled={data.logtype === "" || data.password === "" ? true : false}
         >
           Log In
         </PrimaryBtn>

@@ -1,12 +1,22 @@
-import { all, put, takeLatest } from "redux-saga/effects";
-import { login } from "../reducers/actions/authActions";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { loginApi } from "../api/auth";
+import {
+  login,
+  loginFailed,
+  loginSuccess,
+} from "../reducers/actions/authActions";
 
 /**
  * Login Saga
  */
-function* loginSaga() {
+function* loginSaga(action) {
   try {
-  } catch (error) {}
+    let res = yield call(loginApi, action.payload);
+    console.log(res);
+    yield put(loginSuccess(res));
+  } catch (error) {
+    yield put(loginFailed(error.response));
+  }
 }
 
 export default function* authSagas() {

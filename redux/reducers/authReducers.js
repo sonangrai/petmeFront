@@ -1,15 +1,24 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { login } from "./actions/authActions";
+import { login, loginFailed, loginSuccess } from "./actions/authActions";
 
 const initialState = {
   isAuthenticated: false,
   token: null,
-  loading: true,
+  authenticating: true,
+  authenticationError: {},
 };
 
 const authReducers = createReducer(initialState, {
   [login]: (state) => {
-    state.loading = true;
+    state.authenticating = true;
+  },
+  [loginSuccess]: (state, action) => {
+    state.authenticating = false;
+    isAuthenticated = true;
+  },
+  [loginFailed]: (state, action) => {
+    state.authenticating = false;
+    state.authenticationError = action.payload.data;
   },
 });
 

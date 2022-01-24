@@ -1,8 +1,10 @@
+import { connect } from "react-redux";
 import styled from "styled-components";
 import Bottom from "../../components/pages/login/bottom/Bottom";
 import Brand from "../../components/pages/login/Brand";
 import Loginform from "../../components/pages/login/loginform/Loginform";
 import Meta from "../../components/seo/Meta";
+import { login } from "../../redux/reducers/actions/authActions";
 
 const LoginPage = styled.div`
   display: flex;
@@ -17,14 +19,14 @@ const LoginPage = styled.div`
  * @returns Loign page
  */
 
-const index = () => {
+const index = ({ login }) => {
   return (
     <>
       <Meta title="Login - PetMe" />
       <LoginPage>
         <div>
           <Brand />
-          <Loginform />
+          <Loginform loginDispatch={login} />
           <Bottom />
         </div>
       </LoginPage>
@@ -32,4 +34,12 @@ const index = () => {
   );
 };
 
-export default index;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+const mapDispatchToProps = {
+  login,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(index);
