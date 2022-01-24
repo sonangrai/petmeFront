@@ -4,7 +4,7 @@ import styled from "styled-components";
  * Input stylings
  */
 export const Input = styled.input.attrs((props) => ({
-  type: "text",
+  type: props.type || "text",
 }))`
   border: 1px solid ${({ theme }) => theme.lightGrey};
   padding: 0.6em 0.8em;

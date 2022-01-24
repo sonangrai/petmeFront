@@ -20,11 +20,12 @@ const Fitem = styled.div`
 `;
 
 /**
- *
- * @param {} param0
- * @returns A form item with input, It will also return data
+ * type = input type
+ * name = name for the data type
+ * @param {*} param0
+ * @returns A form item with input, It will also return data and name type
  */
-const FormItem = ({ placeholder, getData }) => {
+const FormItem = ({ type, name, placeholder, getData }) => {
   const [data, setData] = useState("");
 
   const onchange = (e) => {
@@ -32,14 +33,19 @@ const FormItem = ({ placeholder, getData }) => {
   };
 
   useEffect(() => {
-    if (data) getData(data);
+    if (data) getData(name, data);
 
     return () => {};
   }, [data]);
 
   return (
     <Fitem placeholder={data.length > 0 ? placeholder : ""}>
-      <Input placeholder={placeholder} value={data} onChange={onchange} />
+      <Input
+        type={type}
+        placeholder={placeholder}
+        value={data}
+        onChange={onchange}
+      />
     </Fitem>
   );
 };
