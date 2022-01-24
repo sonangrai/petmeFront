@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Brand from "../../components/pages/login/Brand";
+import Loginform from "../../components/pages/login/loginform/Loginform";
 import Meta from "../../components/seo/Meta";
 
 const LoginPage = styled.div`
@@ -22,6 +23,7 @@ const index = () => {
       <LoginPage>
         <div>
           <Brand />
+          <Loginform />
         </div>
       </LoginPage>
     </>

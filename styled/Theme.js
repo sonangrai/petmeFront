@@ -5,8 +5,8 @@ export const theme = {
   //Colors
   primaryColor: "#C40000",
   black: "#000",
-  grey: "#7F7F7F",
-  lightGrey: "#EBECED",
+  grey: "#999696",
+  lightGrey: "#c7c3c3",
 
   //Font Weights
   fntWgtLight: "300",
