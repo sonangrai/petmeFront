@@ -11,4 +11,8 @@ export const PrimaryBtn = styled.button`
   border-radius: 2px;
   width: 100%;
   font-weight: ${({ theme }) => theme.fntWgtBold};
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;

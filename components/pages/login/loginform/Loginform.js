@@ -14,9 +14,15 @@ const Loginform = () => {
     setData({ ...data, [n]: d });
   };
 
+  //Submit form
+  const submit = (e) => {
+    e.preventDefault();
+    console.log(data);
+  };
+
   return (
     <LoginForm>
-      <TheForm>
+      <TheForm onSubmit={submit}>
         <FormItem
           type="text"
           placeholder="Email or Username"
@@ -29,7 +35,11 @@ const Loginform = () => {
           name="password"
           getData={attachData}
         />
-        <PrimaryBtn>Log In</PrimaryBtn>
+        <PrimaryBtn
+          disabled={data.typeAuth === "" || data.password === "" ? true : false}
+        >
+          Log In
+        </PrimaryBtn>
       </TheForm>
     </LoginForm>
   );
