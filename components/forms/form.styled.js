@@ -11,6 +11,7 @@ export const Input = styled.input.attrs((props) => ({
   border-radius: 2px;
   transition: 0.3s;
   color: ${({ theme }) => theme.grey};
+  width: 100%;
   &:focus {
     border: 1px solid ${({ theme }) => theme.grey};
     outline: none;

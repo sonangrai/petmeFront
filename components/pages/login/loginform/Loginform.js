@@ -1,6 +1,7 @@
 import { LoginForm, TheForm } from "./Loginform.styled";
 import FormItem from "../../../forms/FormItem";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { PrimaryBtn } from "../../../button/Button.styled";
 
 const Loginform = () => {
   const [data, setData] = useState({
@@ -28,6 +29,7 @@ const Loginform = () => {
           name="password"
           getData={attachData}
         />
+        <PrimaryBtn>Log In</PrimaryBtn>
       </TheForm>
     </LoginForm>
   );

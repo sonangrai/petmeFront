@@ -8,7 +8,7 @@ const PetBanner = styled.div`
 `;
 
 const Brand = () => {
-  return <PetBanner>PetMe</PetBanner>;
+  return <PetBanner>Petgram</PetBanner>;
 };
 
 export default Brand;
