@@ -5,7 +5,8 @@ const Loginform = () => {
   return (
     <LoginForm>
       <TheForm>
-        <FormItem placeholder="Email or Username" getData={setData} />
+        <FormItem placeholder="Email or Username" name="typeAuth" getData />
+        <FormItem placeholder="Password" name="password" getData />
       </TheForm>
     </LoginForm>
   );

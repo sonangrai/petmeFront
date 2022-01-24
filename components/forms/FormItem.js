@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 const Fitem = styled.div`
   position: relative;
+  margin: 1em 0;
   &:before {
     position: absolute;
     content: "${(props) => props.placeholder}";
@@ -38,7 +39,7 @@ const FormItem = ({ placeholder, getData }) => {
 
   return (
     <Fitem placeholder={data.length > 0 ? placeholder : ""}>
-      <Input placeholder="Email or Username" value={data} onChange={onchange} />
+      <Input placeholder={placeholder} value={data} onChange={onchange} />
     </Fitem>
   );
 };
