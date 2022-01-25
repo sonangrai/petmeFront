@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import Bottom from "../../components/pages/login/bottom/Bottom";
@@ -5,6 +6,7 @@ import Brand from "../../components/pages/login/Brand";
 import Loginform from "../../components/pages/login/loginform/Loginform";
 import Meta from "../../components/seo/Meta";
 import { login } from "../../redux/reducers/actions/authActions";
+import { useEffect } from "react";
 
 const LoginPage = styled.div`
   display: flex;
@@ -20,6 +22,15 @@ const LoginPage = styled.div`
  */
 
 const index = ({ login, auth }) => {
+  //Checking if already logged
+  useEffect(() => {
+    if (auth && auth.isAuthenticated) {
+      Router.push("/");
+    }
+
+    return () => {};
+  }, [auth]);
+
   return (
     <>
       <Meta title="Login - PetMe" />
