@@ -1,7 +1,7 @@
 import Router from "next/router";
 import { connect } from "react-redux";
 import styled from "styled-components";
-import Bottom from "../../components/pages/login/bottom/Bottom";
+import Bottom from "../../components/pages/register/bottom/Bottom";
 import Brand from "../../components/pages/login/Brand";
 import Meta from "../../components/seo/Meta";
 import { login } from "../../redux/reducers/actions/authActions";
