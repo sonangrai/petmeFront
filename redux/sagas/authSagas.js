@@ -12,7 +12,6 @@ import {
 function* loginSaga(action) {
   try {
     let res = yield call(loginApi, action.payload);
-    console.log(res);
     yield put(loginSuccess(res));
   } catch (error) {
     yield put(loginFailed(error.response));

@@ -5,19 +5,25 @@ import Meta from "../components/seo/Meta";
 import Router from "next/router";
 import { useEffect } from "react";
 import { connect } from "react-redux";
+import { islogged } from "../redux/reducers/actions/authActions";
 
 /**
  *
  * @returns Home Page
  */
-const Home = ({ auth }) => {
+const Home = ({ auth, islogged }) => {
   /**
-   * Redirect user to login if not logged in
+   * Check localstorage for session
    */
   useEffect(() => {
-    if (!auth.isAuthenticated) {
-      Router.push("/login");
+    let localAuth = JSON.parse(localStorage.getItem("petAuth"));
+    if (localAuth) {
+      //Dispatch login
+      islogged(localAuth);
+    } else {
+      Router.push("/login"); //Send to login
     }
+    return () => {};
   }, []);
 
   return (
@@ -34,4 +40,8 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = {
+  islogged,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

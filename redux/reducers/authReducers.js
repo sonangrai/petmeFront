@@ -1,5 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { login, loginFailed, loginSuccess } from "./actions/authActions";
+import {
+  islogged,
+  login,
+  loginFailed,
+  loginSuccess,
+} from "./actions/authActions";
 
 const initialState = {
   isAuthenticated: false,
@@ -16,10 +21,16 @@ const authReducers = createReducer(initialState, {
     state.authenticating = false;
     state.isAuthenticated = true;
     state.token = action.payload.data.data.access_token;
+    localStorage.setItem("petAuth", JSON.stringify(action.payload.data.data));
   },
   [loginFailed]: (state, action) => {
     state.authenticating = false;
     state.authenticationError = action.payload.data;
+  },
+
+  [islogged]: (state, action) => {
+    state.isAuthenticated = true;
+    state.token = action.payload.access_token;
   },
 });
 
