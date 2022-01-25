@@ -3,8 +3,12 @@ import FormItem from "../../../forms/FormItem";
 import { useState } from "react";
 import { PrimaryBtn } from "../../../button/Button.styled";
 import { ErrorLabel } from "../../../forms/form.styled";
+import { registerApi } from "../../../../redux/api/auth";
+import Router from "next/router";
 
-const Registerform = ({ loginDispatch, authData }) => {
+const Registerform = () => {
+  const [signing, setSigning] = useState(false);
+  const [error, setError] = useState();
   const [data, setData] = useState({
     email: "",
     username: "",
@@ -19,7 +23,17 @@ const Registerform = ({ loginDispatch, authData }) => {
   //Submit form
   const submit = (e) => {
     e.preventDefault();
-    loginDispatch(data);
+    setSigning(true);
+    registerApi(data).then(
+      (res) => {
+        setSigning(false);
+        Router.push("/verify");
+      },
+      (err) => {
+        setSigning(false);
+        setError(err.response);
+      }
+    );
   };
 
   return (
@@ -43,7 +57,7 @@ const Registerform = ({ loginDispatch, authData }) => {
           name="password"
           getData={attachData}
         />
-        {authData.authenticating ? (
+        {signing ? (
           <PrimaryBtn disabled={true}>Registering...</PrimaryBtn>
         ) : (
           <PrimaryBtn
@@ -56,12 +70,14 @@ const Registerform = ({ loginDispatch, authData }) => {
             Register
           </PrimaryBtn>
         )}
-        {(authData &&
-          authData?.authenticationError &&
-          authData?.authenticationError.status === 404) ||
-          (authData?.authenticationError.status === 401 && (
-            <ErrorLabel>{authData?.authenticationError.msg}</ErrorLabel>
+        {error &&
+          error?.status === 400 &&
+          error.data.data.map((er, i) => (
+            <ErrorLabel key={i + "er"}>{er.msg}</ErrorLabel>
           ))}
+        {error && error?.status !== 400 && (
+          <ErrorLabel>{error.data.msg}</ErrorLabel>
+        )}
       </TheForm>
     </LoginForm>
   );

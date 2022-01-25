@@ -1,4 +1,4 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { createAction } from "@reduxjs/toolkit";
 
 export const login = createAction("LOGIN/REQUEST");
 export const loginSuccess = createAction("LOGIN_SUCCESS/RESPONSE");
