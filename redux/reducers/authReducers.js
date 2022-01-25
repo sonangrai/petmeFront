@@ -4,7 +4,7 @@ import { login, loginFailed, loginSuccess } from "./actions/authActions";
 const initialState = {
   isAuthenticated: false,
   token: null,
-  authenticating: true,
+  authenticating: false,
   authenticationError: {},
 };
 
@@ -14,7 +14,8 @@ const authReducers = createReducer(initialState, {
   },
   [loginSuccess]: (state, action) => {
     state.authenticating = false;
-    isAuthenticated = true;
+    state.isAuthenticated = true;
+    state.token = action.payload.data.data.access_token;
   },
   [loginFailed]: (state, action) => {
     state.authenticating = false;

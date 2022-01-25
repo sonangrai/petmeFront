@@ -15,5 +15,6 @@ export const loginApi = async (data) => {
   let jData = JSON.stringify(data);
 
   let res = await Axios.post(`${BASEURL}/api/auth/login`, jData, config);
+  console.log(res);
   return res;
 };
