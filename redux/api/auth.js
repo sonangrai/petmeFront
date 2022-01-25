@@ -17,3 +17,13 @@ export const loginApi = async (data) => {
   let res = await Axios.post(`${BASEURL}/api/auth/login`, jData, config);
   return res;
 };
+
+/**
+ * Register api
+ */
+export const registerApi = async (data) => {
+  let jData = JSON.stringify(data);
+
+  let res = await Axios.post(`${BASEURL}/api/auth`, jData, config);
+  return res;
+};
