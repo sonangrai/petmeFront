@@ -27,7 +27,10 @@ const Registerform = () => {
     registerApi(data).then(
       (res) => {
         setSigning(false);
-        Router.push("/verify");
+        Router.push({
+          pathname: "/verify",
+          query: { email: data.email },
+        });
       },
       (err) => {
         setSigning(false);

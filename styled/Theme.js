@@ -8,6 +8,7 @@ export const theme = {
   grey: "#999696",
   lightGrey: "#c7c3c3",
   danger: "#e10a0a",
+  success: "#12ce28",
 
   //Font Weights
   fntWgtLight: "300",

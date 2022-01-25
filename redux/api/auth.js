@@ -27,3 +27,13 @@ export const registerApi = async (data) => {
   let res = await Axios.post(`${BASEURL}/api/auth`, jData, config);
   return res;
 };
+
+/**
+ * Activate account api
+ */
+export const activateApi = async (data) => {
+  let jData = JSON.stringify(data);
+
+  let res = await Axios.post(`${BASEURL}/api/auth/activate`, jData, config);
+  return res;
+};

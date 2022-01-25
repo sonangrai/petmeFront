@@ -28,3 +28,14 @@ export const ErrorLabel = styled.div`
   text-align: center;
   max-width: 200px;
 `;
+
+/**
+ * Success Label
+ */
+export const SuccessLabel = styled.div`
+  color: ${({ theme }) => theme.success};
+  font-size: 0.8em;
+  margin: 0.5em auto;
+  text-align: center;
+  max-width: 200px;
+`;
