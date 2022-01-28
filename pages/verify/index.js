@@ -6,7 +6,7 @@ import Brand from "../../components/pages/login/Brand";
 import Meta from "../../components/seo/Meta";
 import { login } from "../../redux/reducers/actions/authActions";
 import { useEffect } from "react";
-import InfoBrand from "../../components/pages/verify/infoBanner";
+import InfoBrand from "../../components/pages/verify/InfoBanner";
 import Verifyform from "../../components/pages/verify/verifyform/Verifyform";
 import { withRouter } from "next/router";
 
