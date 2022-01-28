@@ -47,12 +47,9 @@ const Loginform = ({ loginDispatch, authData }) => {
             Log In
           </PrimaryBtn>
         )}
-        {(authData &&
-          authData?.authenticationError &&
-          authData?.authenticationError.status === 404) ||
-          (authData?.authenticationError.status === 401 && (
-            <ErrorLabel>{authData?.authenticationError.msg}</ErrorLabel>
-          ))}
+        {authData && authData?.authenticationError && (
+          <ErrorLabel>{authData?.authenticationError.msg}</ErrorLabel>
+        )}
       </TheForm>
     </LoginForm>
   );
