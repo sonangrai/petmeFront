@@ -1,7 +1,59 @@
 import styled from "styled-components";
 
-export const HeadStyle = styled.div`
-  text-align: center;
-  padding: 1rem;
-  color: ${(props) => props.theme.grey};
+/**
+ * Main header container
+ */
+export const HeadStyle = styled.header`
+  padding: 0.3em 0.5em;
+  background-color: ${({ theme }) => theme.white};
+  border-bottom: 1px solid ${({ theme }) => theme.lightGrey};
+`;
+
+/**
+ * Head row
+ */
+export const HeadRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+/**
+ * Website logo
+ */
+export const SiteLogo = styled.h1`
+  font-size: 1.2em;
+  margin: 0;
+  a {
+    color: ${({ theme }) => theme.black};
+    text-decoration: none;
+    font-size: 1.5em;
+    font-family: ${({ theme }) => theme.brandFont};
+  }
+`;
+
+/**
+ * Create post
+ */
+export const CreatePost = styled.div`
+  display: flex;
+  align-items: center;
+  svg {
+    width: 30px;
+    height: auto;
+  }
+`;
+
+/**
+ * Chat
+ */
+export const ChatNav = styled.div`
+  a {
+    display: flex;
+    align-items: center;
+    svg {
+      width: 30px;
+      height: auto;
+    }
+  }
 `;
