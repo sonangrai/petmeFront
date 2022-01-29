@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 /**
  * This file will contain all the theme realted variables like colors, fontSize, fontWeight etc for the styled-components
  */
@@ -18,3 +20,7 @@ export const theme = {
   //Brand Font
   brandFont: "'Dancing Script', cursive",
 };
+
+export const Main = styled.main`
+  min-height: 80vh;
+`;
