@@ -8,8 +8,24 @@ import {
 import { Chat, Create } from "./logo";
 import Link from "next/link";
 import { connect } from "react-redux";
+import { useEffect } from "react";
+import { islogged } from "../../../redux/reducers/actions/authActions";
 
-const Header = ({ auth }) => {
+const Header = ({ auth, islogged }) => {
+  /**
+   * Check localstorage for session
+   */
+  useEffect(() => {
+    let localAuth = JSON.parse(localStorage.getItem("petAuth"));
+    if (localAuth) {
+      //Dispatch login
+      islogged(localAuth);
+    } else {
+      Router.push("/login"); //Send to login
+    }
+    return () => {};
+  }, []);
+
   if (auth && auth.isAuthenticated) {
     //Returning if only user is logged
     return (
@@ -42,4 +58,8 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = {
+  islogged,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
