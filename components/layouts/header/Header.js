@@ -1,11 +1,10 @@
 import {
   ChatNav,
-  CreatePost,
   HeadRow,
   HeadStyle,
   SiteLogo,
 } from "./styled/HeadStyle.styled";
-import { Chat, Create } from "./logo";
+import { Chat } from "../logo";
 import Link from "next/link";
 import { connect } from "react-redux";
 import { useEffect } from "react";
@@ -31,9 +30,6 @@ const Header = ({ auth, islogged }) => {
     return (
       <HeadStyle>
         <HeadRow>
-          <CreatePost>
-            <Create />
-          </CreatePost>
           <SiteLogo>
             <Link href="/">
               <a>Petgram</a>
