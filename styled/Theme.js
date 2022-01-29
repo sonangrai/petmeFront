@@ -7,6 +7,7 @@ export const theme = {
   //Colors
   primaryColor: "#16d3c1",
   black: "#000",
+  white: "#fff",
   grey: "#999696",
   lightGrey: "#c7c3c3",
   danger: "#e10a0a",
@@ -22,5 +23,5 @@ export const theme = {
 };
 
 export const Main = styled.main`
-  min-height: 80vh;
+  min-height: 95vh;
 `;
