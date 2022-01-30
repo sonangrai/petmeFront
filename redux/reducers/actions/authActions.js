@@ -10,5 +10,5 @@ export const islogged = createAction("LOGGED");
 
 //Get profile actions
 export const gettingProfile = createAction("GET_PROIFLE/REQ");
-export const gettingProfileSuccess = createAction("GET_PROGILE_SUCCESS/RES");
-export const gettingProfileError = createAction("GET_PROGILE_FAIL/RES");
+export const gettingProfileSuccess = createAction("GET_PROFILE_SUCCESS/RES");
+export const gettingProfileError = createAction("GET_PROFILE_FAIL/RES");
