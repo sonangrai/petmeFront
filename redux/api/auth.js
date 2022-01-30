@@ -1,12 +1,5 @@
 import Axios from "axios";
-let BASEURL = process.env.NEXT_PUBLIC_BACKEND_API;
-
-//Config
-const config = {
-  headers: {
-    "Content-Type": "application/json",
-  },
-};
+import { config, BASEURL } from "./utils";
 
 /**
  * Login api
@@ -14,7 +7,7 @@ const config = {
 export const loginApi = async (data) => {
   let jData = JSON.stringify(data);
 
-  let res = await Axios.post(`${BASEURL}/api/auth/login`, jData, config);
+  let res = await Axios.post(`${BASEURL}/auth/login`, jData, config);
   return res;
 };
 
@@ -24,7 +17,7 @@ export const loginApi = async (data) => {
 export const registerApi = async (data) => {
   let jData = JSON.stringify(data);
 
-  let res = await Axios.post(`${BASEURL}/api/auth`, jData, config);
+  let res = await Axios.post(`${BASEURL}/auth`, jData, config);
   return res;
 };
 
@@ -34,6 +27,6 @@ export const registerApi = async (data) => {
 export const activateApi = async (data) => {
   let jData = JSON.stringify(data);
 
-  let res = await Axios.post(`${BASEURL}/api/auth/activate`, jData, config);
+  let res = await Axios.post(`${BASEURL}/auth/activate`, jData, config);
   return res;
 };

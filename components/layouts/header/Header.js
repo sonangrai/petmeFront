@@ -9,6 +9,7 @@ import Link from "next/link";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import { islogged } from "../../../redux/reducers/actions/authActions";
+import Router from "next/router";
 
 const Header = ({ auth, islogged }) => {
   /**
