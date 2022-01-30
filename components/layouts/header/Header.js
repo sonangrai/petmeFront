@@ -23,7 +23,7 @@ const Header = ({ auth, islogged, gettingProfile }) => {
     if (localAuth) {
       //Dispatch login
       islogged(localAuth);
-      gettingProfile(localAuth.user._id);
+      gettingProfile();
     } else {
       Router.push("/login"); //Send to login
     }

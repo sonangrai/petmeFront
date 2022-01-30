@@ -15,7 +15,7 @@ function* getProfileSaga(action) {
     console.log(res);
     yield put(gettingProfileSuccess(res));
   } catch (error) {
-    console.log(error.response);
+    console.log(error);
     yield put(gettingProfileError(error));
   }
 }

@@ -1,12 +1,11 @@
-import Axios from "axios";
-import { BASEURL } from "./utils";
+import { BASEURL, loggedAxios } from "./utils";
 
 /**
  *
  * @param {*} id
  * @returns Fet profile api
  */
-export const getProfileApi = async (id) => {
-  const res = await Axios.get(`${BASEURL}/profile`);
+export const getProfileApi = async () => {
+  const res = await loggedAxios().get(`${BASEURL}/profile`);
   return res;
 };

@@ -54,7 +54,7 @@ const authReducers = createReducer(initialState, {
   },
   [gettingProfileError]: (state, action) => {
     state.gettingProfile = false;
-    state.gettingProfileError = action.payload.data.data;
+    state.gettingProfileError = action.payload;
   },
 });
 
