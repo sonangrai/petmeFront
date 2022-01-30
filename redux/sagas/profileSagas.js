@@ -1,4 +1,4 @@
-import { all, takeLatest } from "@redux-saga/core/effects";
+import { all, takeLatest, put, call } from "@redux-saga/core/effects";
 import { getProfileApi } from "../api/profile";
 import {
   gettingProfile,
@@ -15,7 +15,8 @@ function* getProfileSaga(action) {
     console.log(res);
     yield put(gettingProfileSuccess(res));
   } catch (error) {
-    yield put(gettingProfileError(error.response));
+    console.log(error.response);
+    yield put(gettingProfileError(error));
   }
 }
 

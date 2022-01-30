@@ -8,10 +8,13 @@ import { Chat } from "../logo";
 import Link from "next/link";
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import { islogged } from "../../../redux/reducers/actions/authActions";
+import {
+  gettingProfile,
+  islogged,
+} from "../../../redux/reducers/actions/authActions";
 import Router from "next/router";
 
-const Header = ({ auth, islogged }) => {
+const Header = ({ auth, islogged, gettingProfile }) => {
   /**
    * Check localstorage for session
    */
@@ -20,6 +23,7 @@ const Header = ({ auth, islogged }) => {
     if (localAuth) {
       //Dispatch login
       islogged(localAuth);
+      gettingProfile(localAuth.user._id);
     } else {
       Router.push("/login"); //Send to login
     }
@@ -57,6 +61,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   islogged,
+  gettingProfile,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
