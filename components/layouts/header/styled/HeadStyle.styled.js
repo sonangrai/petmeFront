@@ -61,3 +61,20 @@ export const ChatNav = styled.div`
     }
   }
 `;
+
+/**
+ * No profile
+ */
+export const NoProfile = styled.div`
+  position: fixed;
+  top: calc(5vh + 0.5em);
+  left: 0;
+  background-color: ${({ theme }) => theme.primaryColor};
+  a {
+    display: block;
+    text-decoration: none;
+    color: ${({ theme }) => theme.white};
+    padding: 0.5em;
+    font-size: 0.8em;
+  }
+`;

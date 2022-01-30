@@ -13,8 +13,10 @@ import {
   islogged,
 } from "../../../redux/reducers/actions/authActions";
 import Router from "next/router";
+import CompleteProfile from "./CompleteProfile";
 
 const Header = ({ auth, islogged, gettingProfile }) => {
+  let { router } = Router;
   /**
    * Check localstorage for session
    */
@@ -48,6 +50,7 @@ const Header = ({ auth, islogged, gettingProfile }) => {
             </Link>
           </ChatNav>
         </HeadRow>
+        <CompleteProfile paths={router} auth={auth} />
       </HeadStyle>
     );
   } else {
