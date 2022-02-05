@@ -15,6 +15,8 @@ const initialState = {
   authenticating: false,
   authenticationError: {},
 
+  user: {},
+
   profile: {},
   gettingProfile: false,
   gettingProfileSuccess: false,
@@ -30,6 +32,7 @@ const authReducers = createReducer(initialState, {
     state.authenticating = false;
     state.isAuthenticated = true;
     state.token = action.payload.data.data.access_token;
+    state.user = action.payload.data.data.user;
     localStorage.setItem("petAuth", JSON.stringify(action.payload.data.data));
   },
   [loginFailed]: (state, action) => {
@@ -40,6 +43,7 @@ const authReducers = createReducer(initialState, {
   //Is logged
   [islogged]: (state, action) => {
     state.isAuthenticated = true;
+    state.user = action.payload.user;
     state.token = action.payload.access_token;
   },
 
