@@ -1,6 +1,11 @@
 import { useRouter } from "next/router";
 import { BackBtn, BackFlex, GobackBox, TItlebar } from "./styled/Goback.styled";
 
+/**
+ *
+ * @param {*} param0
+ * @returns Go back
+ */
 const GoBack = ({ title }) => {
   let router = useRouter();
 
@@ -18,8 +23,8 @@ const GoBack = ({ title }) => {
               d="m4.5 8.5-4-4 4-4"
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               transform="translate(7 6)"
             />
           </svg>

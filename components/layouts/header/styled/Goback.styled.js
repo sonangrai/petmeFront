@@ -6,6 +6,7 @@ import styled from "styled-components";
 export const GobackBox = styled.div`
   padding: 0.5em;
   border-bottom: 1px solid ${({ theme }) => theme.grey};
+  margin-left: -10px;
 `;
 
 /**

@@ -6,7 +6,7 @@ import styled from "styled-components";
 export const theme = {
   //Colors
   primaryColor: "#16d3c1",
-  black: "#000",
+  black: "#4a4949",
   white: "#fff",
   grey: "#999696",
   lightGrey: "#c7c3c3",
