@@ -9,15 +9,24 @@ import Head from "next/head";
 const Meta = ({ title, description, image, twitterType, link }) => {
   return (
     <Head>
-      <title>{title}</title>
+      <title>{title ? `${title} • Petgram` : "Petgram"}</title>
       <meta name="description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
+      <meta
+        property="og:title"
+        content={title ? `${title} • Petgram` : "Petgram"}
+      />
       <meta property="og:description" content={description} />
-      <meta property="og:site_name" content={title} />
+      <meta
+        property="og:site_name"
+        content={title ? `${title} • Petgram` : "Petgram"}
+      />
       <meta property="og:image" content={`${link ? link : ""}/${image}`} />
       <meta property="twitter:card" content={twitterType} />
-      <meta property="twitter:title" content={title} />
+      <meta
+        property="twitter:title"
+        content={title ? `${title} • Petgram` : "Petgram"}
+      />
       <meta property="twitter:description" content={description} />
       <meta property="og:url" content={link} />
 

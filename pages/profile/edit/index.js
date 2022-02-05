@@ -1,7 +1,12 @@
 import React from "react";
+import Meta from "../../../components/seo/Meta";
 
 const index = () => {
-  return <div>Edit</div>;
+  return (
+    <>
+      <Meta title="Edit Profile" />
+    </>
+  );
 };
 
 export default index;
