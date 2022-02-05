@@ -29,6 +29,7 @@ export const DpBox = styled.div`
 export const CurrentDp = styled.div`
   border-radius: 50%;
   overflow: hidden;
+  border: 1px solid ${({ theme }) => theme.primaryColor};
 `;
 
 /**

@@ -14,7 +14,7 @@ import {
  * @returns Upload DP
  */
 
-const Dp = () => {
+const Dp = ({ auth }) => {
   return (
     <Dpcontainer>
       <DpRow>
@@ -27,7 +27,9 @@ const Dp = () => {
           </CurrentDp>
         </DpBox>
         <NamePart>
-          <UsernameTitle>petlovershiba</UsernameTitle>
+          <UsernameTitle>
+            {auth ? auth.user.username : "petlovershiba"}
+          </UsernameTitle>
           <UpdateDp>
             <span>Change Display Photo</span>
           </UpdateDp>
