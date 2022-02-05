@@ -13,8 +13,10 @@ import {
   islogged,
 } from "../../../redux/reducers/actions/authActions";
 import CompleteProfile from "./CompleteProfile";
+import { useRouter } from "next/router";
 
 const Header = ({ auth, islogged, gettingProfile }) => {
+  let router = useRouter();
   /**
    * Check localstorage for session
    */
@@ -30,7 +32,7 @@ const Header = ({ auth, islogged, gettingProfile }) => {
     return () => {};
   }, []);
 
-  if (auth && auth.isAuthenticated) {
+  if (auth && auth.isAuthenticated && !router.asPath.includes("/profile")) {
     //Returning if only user is logged
     return (
       <HeadStyle>
