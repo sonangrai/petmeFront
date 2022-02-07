@@ -39,3 +39,20 @@ export const SuccessLabel = styled.div`
   text-align: center;
   max-width: 200px;
 `;
+
+/**
+ * Label form item
+ */
+export const FormLabel = styled.label`
+  font-weight: ${({ theme }) => theme.fntWgtBold};
+  display: block;
+  margin-bottom: 0.4em;
+`;
+
+/**
+ * Form item hint
+ */
+export const FormHint = styled.div`
+  font-size: 0.7em;
+  opacity: 0.5;
+`;
