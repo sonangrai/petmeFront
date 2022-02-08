@@ -27,7 +27,7 @@ const Header = ({ auth, islogged, gettingProfile }) => {
       islogged(localAuth);
       gettingProfile();
     } else {
-      Router.push("/login"); //Send to login
+      router.push("/login"); //Send to login
     }
     return () => {};
   }, []);
