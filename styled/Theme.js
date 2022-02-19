@@ -13,6 +13,8 @@ export const theme = {
   danger: "#e10a0a",
   success: "#12ce28",
 
+  modalbackdrop: "#00000054",
+
   //Font Weights
   fntWgtLight: "300",
   fntWgtRegular: "400",

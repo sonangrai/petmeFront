@@ -14,7 +14,7 @@ import {
  * @returns Upload DP
  */
 
-const Dp = ({ auth }) => {
+const Dp = ({ auth, showmodal }) => {
   return (
     <Dpcontainer>
       <DpRow>
@@ -35,7 +35,7 @@ const Dp = ({ auth }) => {
             {auth ? auth.user.username : "petlovershiba"}
           </UsernameTitle>
           <UpdateDp>
-            <span>Change Display Photo</span>
+            <span onClick={() => showmodal(true)}>Change Display Photo</span>
           </UpdateDp>
         </NamePart>
       </DpRow>
