@@ -19,7 +19,6 @@ const Dpmodal = ({ showmodal }) => {
         <ModalTitleBar>
           <ModalTitile>Change Display Picture</ModalTitile>
           <ModalClose>
-            {" "}
             <span onClick={() => showmodal(false)}> X </span>
           </ModalClose>
         </ModalTitleBar>

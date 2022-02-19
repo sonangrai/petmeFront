@@ -55,4 +55,5 @@ export const CancelModal = styled.div`
   text-align: center;
   padding: 1em;
   color: ${({ theme }) => theme.danger};
+  cursor: pointer;
 `;

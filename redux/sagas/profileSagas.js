@@ -12,7 +12,6 @@ import {
 function* getProfileSaga(action) {
   try {
     let res = yield call(getProfileApi, action.payload);
-    console.log(res);
     yield put(gettingProfileSuccess(res));
   } catch (error) {
     yield put(gettingProfileError(error.response));
