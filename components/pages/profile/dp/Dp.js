@@ -22,7 +22,11 @@ const Dp = ({ auth }) => {
           <CurrentDp>
             <NextImage
               height="50px"
-              src="https://res.cloudinary.com/drqgginx9/image/upload/v1597550619/iaymy8inbxqsc2gbkumw.png"
+              src={
+                auth?.profile?.avatar
+                  ? auth.profile.avatar.secure_url
+                  : "https://res.cloudinary.com/drqgginx9/image/upload/v1597550619/iaymy8inbxqsc2gbkumw.png"
+              }
             />
           </CurrentDp>
         </DpBox>
