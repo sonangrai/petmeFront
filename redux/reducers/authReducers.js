@@ -7,6 +7,7 @@ import {
   login,
   loginFailed,
   loginSuccess,
+  updateDP,
 } from "./actions/authActions";
 
 const initialState = {
@@ -59,6 +60,11 @@ const authReducers = createReducer(initialState, {
   [gettingProfileError]: (state, action) => {
     state.gettingProfile = false;
     state.gettingProfileError = action.payload.data;
+  },
+
+  //DP
+  [updateDP]: (state, action) => {
+    state.profile.avatar = action.payload.data;
   },
 });
 

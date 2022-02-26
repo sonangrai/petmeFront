@@ -12,3 +12,6 @@ export const islogged = createAction("LOGGED");
 export const gettingProfile = createAction("GET_PROIFLE/REQ");
 export const gettingProfileSuccess = createAction("GET_PROFILE_SUCCESS/RES");
 export const gettingProfileError = createAction("GET_PROFILE_FAIL/RES");
+
+//Dp update
+export const updateDP = createAction("UPDATE_DP/STATE");
