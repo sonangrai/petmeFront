@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 const Home = () => {
   return (
     <>
-      <Meta title="PetMe" description="" image="" />
+      <Meta description="" image="" />
       <NextImage height="50px" layout="contain" />
     </>
   );

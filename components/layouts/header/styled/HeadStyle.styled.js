@@ -20,6 +20,8 @@ export const HeadRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 900px;
+  margin: auto;
 `;
 
 /**

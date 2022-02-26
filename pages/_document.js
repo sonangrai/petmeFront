@@ -46,6 +46,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@300;400;600&display=swap"
             rel="stylesheet"
           />
+          <link rel="icon" href="/logo.svg" type="logo" />
         </Head>
         <body>
           <Main />
