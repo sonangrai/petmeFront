@@ -3,7 +3,6 @@ import {
   BottomPart,
   Forgot,
   Or,
-  Signup,
   Signuplink,
 } from "../../login/bottom/Bottom.styled";
 

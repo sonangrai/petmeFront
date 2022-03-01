@@ -10,6 +10,24 @@ export const config = {
   },
 };
 
+let isRefreshing = false;
+let failedQueue = [];
+
+/**
+ * For queing the multiple process
+ */
+const processQueue = (error, token = null) => {
+  failedQueue.forEach((prom) => {
+    if (error) {
+      prom.reject(error);
+    } else {
+      prom.resolve(token);
+    }
+  });
+
+  failedQueue = [];
+};
+
 /**
  * The interceptor logic
  */
@@ -44,20 +62,22 @@ const interceptor = (loggedAxios) => (error) => {
     isRefreshing = true;
 
     return new Promise(function (resolve, reject) {
-      refreshTokenApi(pack)
-        .then((res) => {
-          processQueue(null, res.data?.data?.access_token);
-          //Distpaching the redux
-          store.dispatch(loadUser());
-          resolve(_axios(originalConfig));
-        })
-        .catch((error) => {
-          processQueue(error, null);
-          reject(error);
-        })
-        .finally(() => {
-          isRefreshing = false;
-        });
+      // refreshTokenApi(pack)
+      //   .then((res) => {
+      //     processQueue(null, res.data?.data?.access_token);
+      //     //Distpaching the redux
+      //     store.dispatch(loadUser());
+      //     resolve(_axios(originalConfig));
+      //   })
+      //   .catch((error) => {
+      //     processQueue(error, null);
+      //     reject(error);
+      //   })
+      //   .finally(() => {
+      //     isRefreshing = false;
+      //   });
+
+      resolve(_axios(originalConfig));
     });
   } else {
     return Promise.reject(error);

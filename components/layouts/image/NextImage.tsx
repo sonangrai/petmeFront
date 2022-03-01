@@ -11,14 +11,15 @@ import { ImageWrapper } from "./styled/ImageWrapper.styled";
  * @returns The Image Component that will implement the next Image.
  */
 
-const NextImage = ({ height, src, alt, layout }) => {
+const NextImage = ({
+  height,
+  src = "/favicon.ico",
+  alt = "Alt Text",
+  layout = "fill",
+}) => {
   return (
     <ImageWrapper height={height} layout={layout || "cover"}>
-      <Image
-        src={src || "/favicon.ico"}
-        layout="fill"
-        alt={alt || "Alt Text"}
-      />
+      <Image src={src} layout="fill" alt={alt} />
     </ImageWrapper>
   );
 };

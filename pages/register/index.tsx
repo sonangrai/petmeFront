@@ -22,7 +22,7 @@ const LoginPage = styled.div`
  * @returns Loign page
  */
 
-const index = ({ login, auth }) => {
+const index = ({ auth }) => {
   //Checking if already logged
   useEffect(() => {
     if (auth && auth.isAuthenticated) {
@@ -39,7 +39,7 @@ const index = ({ login, auth }) => {
         <div>
           <Brand />
           <Reginfo />
-          <Registerform loginDispatch={login} authData={auth} />
+          <Registerform />
           <Bottom />
         </div>
       </LoginPage>

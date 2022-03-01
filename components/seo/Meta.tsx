@@ -6,7 +6,13 @@ import Head from "next/head";
  * @returns A meta headers component
  */
 
-const Meta = ({ title, description, image, twitterType, link }) => {
+const Meta = ({
+  title = "Petgram",
+  description = "A Petgram",
+  image = "",
+  twitterType = "",
+  link = "",
+}) => {
   return (
     <Head>
       <title>{title ? `${title} • Petgram` : "Petgram"}</title>
@@ -29,17 +35,6 @@ const Meta = ({ title, description, image, twitterType, link }) => {
       />
       <meta property="twitter:description" content={description} />
       <meta property="og:url" content={link} />
-
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="true"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
-      ></link>
     </Head>
   );
 };

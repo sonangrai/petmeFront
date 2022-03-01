@@ -6,9 +6,22 @@ import { ErrorLabel } from "../../../forms/form.styled";
 import { registerApi } from "../../../../redux/api/auth";
 import Router from "next/router";
 
+interface Ierror {
+  status: number;
+  data: {
+    data: [];
+    msg: string;
+  };
+}
+
+/**
+ *
+ * @returns Register Form
+ */
+
 const Registerform = () => {
   const [signing, setSigning] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState<Ierror>();
   const [data, setData] = useState({
     email: "",
     username: "",
@@ -75,7 +88,7 @@ const Registerform = () => {
         )}
         {error &&
           error?.status === 400 &&
-          error.data.data.map((er, i) => (
+          error.data.data.map((er: any, i) => (
             <ErrorLabel key={i + "er"}>{er.msg}</ErrorLabel>
           ))}
         {error && error?.status !== 400 && (

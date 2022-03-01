@@ -18,7 +18,9 @@ const initialState = {
 
   user: {},
 
-  profile: {},
+  profile: {
+    avatar: {},
+  },
   gettingProfile: false,
   gettingProfileSuccess: false,
   gettingProfileError: {},
@@ -26,44 +28,44 @@ const initialState = {
 
 const authReducers = createReducer(initialState, {
   //Login
-  [login]: (state) => {
+  [login.type]: (state) => {
     state.authenticating = true;
   },
-  [loginSuccess]: (state, action) => {
+  [loginSuccess.type]: (state, action) => {
     state.authenticating = false;
     state.isAuthenticated = true;
     state.token = action.payload.data.data.access_token;
     state.user = action.payload.data.data.user;
     localStorage.setItem("petAuth", JSON.stringify(action.payload.data.data));
   },
-  [loginFailed]: (state, action) => {
+  [loginFailed.type]: (state, action) => {
     state.authenticating = false;
     state.authenticationError = action.payload.data;
   },
 
   //Is logged
-  [islogged]: (state, action) => {
+  [islogged.type]: (state, action) => {
     state.isAuthenticated = true;
     state.user = action.payload.user;
     state.token = action.payload.access_token;
   },
 
   //Profile
-  [gettingProfile]: (state) => {
+  [gettingProfile.type]: (state) => {
     state.gettingProfile = true;
   },
-  [gettingProfileSuccess]: (state, action) => {
+  [gettingProfileSuccess.type]: (state, action) => {
     state.gettingProfile = false;
     state.gettingProfileSuccess = true;
     state.profile = action.payload.data.data;
   },
-  [gettingProfileError]: (state, action) => {
+  [gettingProfileError.type]: (state, action) => {
     state.gettingProfile = false;
     state.gettingProfileError = action.payload.data;
   },
 
   //DP
-  [updateDP]: (state, action) => {
+  [updateDP.type]: (state, action) => {
     state.profile.avatar = action.payload.data;
   },
 });

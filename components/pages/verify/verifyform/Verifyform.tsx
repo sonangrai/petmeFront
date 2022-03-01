@@ -8,8 +8,8 @@ import Router from "next/router";
 
 const Verifyform = ({ email }) => {
   const [activating, setactivating] = useState(false);
-  const [error, setError] = useState();
-  const [success, setSuccess] = useState();
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
   const [data, setData] = useState({
     email: email,
     code: "",
@@ -28,7 +28,7 @@ const Verifyform = ({ email }) => {
       (res) => {
         setactivating(false);
         setSuccess(res.data);
-        setError();
+        setError(null);
       },
       (err) => {
         setactivating(false);

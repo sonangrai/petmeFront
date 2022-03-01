@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BottomPart, Forgot, Or, Signup, Signuplink } from "./Bottom.styled";
+import { BottomPart, Forgot, Or, Signuplink } from "./Bottom.styled";
 
 const Bottom = () => {
   return (

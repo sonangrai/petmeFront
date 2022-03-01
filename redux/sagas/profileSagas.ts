@@ -9,9 +9,9 @@ import {
 /**
  * Get profile
  */
-function* getProfileSaga(action) {
+function* getProfileSaga() {
   try {
-    let res = yield call(getProfileApi, action.payload);
+    let res = yield call(getProfileApi);
     yield put(gettingProfileSuccess(res));
   } catch (error) {
     yield put(gettingProfileError(error.response));
