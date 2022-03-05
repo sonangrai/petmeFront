@@ -9,28 +9,44 @@ import {
   Textarea,
 } from "../../../forms/form.styled";
 import { PfItem, Pform, ProfileformBox } from "./Profileform.styled";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PrimaryBtn } from "../../../button/Button.styled";
 import { addProfileApi } from "redux/api/profile";
+
+type Props = {
+  auth: Iauth;
+  addProfile: any;
+};
+
+const initialState = {
+  authId: "",
+  avatar: {} as Iavatar,
+  firstname: "",
+  lastname: "",
+  address: "",
+  contact: "",
+  bio: "",
+  gender: "",
+  dob: "",
+  hidenumber: "true",
+};
 
 /**
  *
  * @returns Profile form
  */
-const Profileform = ({ auth, addProfile }) => {
+const Profileform = ({ auth, addProfile }: Props) => {
   const [submitting, setSubmitting] = useState(false);
-  const [data, setdata] = useState<Iprofile>({
-    authId: auth.profile.authId,
-    avatar: auth.profile.avatar,
-    firstname: auth.profile.firstname || "",
-    lastname: auth.profile.lastname || "",
-    address: auth.profile.address || "",
-    contact: auth.profile.contact || "",
-    bio: auth.profile.bio || "",
-    gender: auth.profile.gender || "",
-    dob: auth.profile.dob || "",
-    hidenumber: auth.profile.hidenumber || "true",
-  });
+  const [data, setdata] = useState<Iprofile>(initialState);
+
+  useEffect(() => {
+    const profileData = { ...initialState };
+    for (const key in auth.profile) {
+      if (key in profileData) profileData[key] = auth.profile[key];
+    }
+    setdata(profileData);
+    return () => {};
+  }, [auth.profile]);
 
   const { firstname, lastname, address, contact, bio, dob } = data;
 
