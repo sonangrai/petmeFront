@@ -9,18 +9,17 @@ import {
   loginSuccess,
   updateDP,
 } from "./actions/authActions";
+import { addprofile } from "./actions/profileActions";
 
-const initialState = {
+const initialState: Iauth = {
   isAuthenticated: false,
   token: null,
   authenticating: false,
   authenticationError: {},
 
-  user: {},
+  user: {} as Iuser,
 
-  profile: {
-    avatar: {},
-  },
+  profile: {} as Iprofile,
   gettingProfile: false,
   gettingProfileSuccess: false,
   gettingProfileError: {},
@@ -67,6 +66,11 @@ const authReducers = createReducer(initialState, {
   //DP
   [updateDP.type]: (state, action) => {
     state.profile.avatar = action.payload.data;
+  },
+
+  //Adding Profile
+  [addprofile.type]: (state, action) => {
+    state.profile = action.payload.data;
   },
 });
 

@@ -11,13 +11,17 @@ import {
 import { PfItem, Pform, ProfileformBox } from "./Profileform.styled";
 import { useState } from "react";
 import { PrimaryBtn } from "../../../button/Button.styled";
+import { addProfileApi } from "redux/api/profile";
 
 /**
  *
  * @returns Profile form
  */
-const Profileform = ({ auth }) => {
-  const [data, setdata] = useState({
+const Profileform = ({ auth, addProfile }) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [data, setdata] = useState<Iprofile>({
+    authId: auth.profile.authId,
+    avatar: auth.profile.avatar,
     firstname: auth.profile.firstname || "",
     lastname: auth.profile.lastname || "",
     address: auth.profile.address || "",
@@ -36,7 +40,17 @@ const Profileform = ({ auth }) => {
 
   const onsubmit = (e) => {
     e.preventDefault();
-    console.log(data);
+    setSubmitting(true);
+    addProfileApi(data).then(
+      (res) => {
+        setSubmitting(false);
+        addProfile(res.data);
+      },
+      (err) => {
+        console.log(err);
+        setSubmitting(false);
+      }
+    );
   };
 
   return (
@@ -137,7 +151,11 @@ const Profileform = ({ auth }) => {
             </RadioItem>
           </RadioRow>
         </PfItem>
-        <PrimaryBtn>Submit</PrimaryBtn>
+        {submitting ? (
+          <PrimaryBtn disabled>Submitting...</PrimaryBtn>
+        ) : (
+          <PrimaryBtn>Submit</PrimaryBtn>
+        )}
       </Pform>
     </ProfileformBox>
   );

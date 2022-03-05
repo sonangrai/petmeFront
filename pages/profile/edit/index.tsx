@@ -6,6 +6,7 @@ import Dpmodal from "../../../components/pages/profile/dpModal/Dpmodal";
 import Profileform from "../../../components/pages/profile/form/Profileform";
 import Meta from "../../../components/seo/Meta";
 import { updateDP } from "../../../redux/reducers/actions/authActions";
+import { addprofile } from "redux/reducers/actions/profileActions";
 
 /**
  *
@@ -13,7 +14,7 @@ import { updateDP } from "../../../redux/reducers/actions/authActions";
  * @returns EDit profile page
  */
 
-const index = ({ auth, updateDP }) => {
+const index = ({ auth, updateDP, addprofile }) => {
   const [modal, setmodal] = useState(false); //State for upload dp modal
 
   return (
@@ -21,7 +22,7 @@ const index = ({ auth, updateDP }) => {
       <Meta title="Edit Profile" />
       <GoBack title="Edit Profile" />
       <Dp auth={auth} showmodal={setmodal} />
-      <Profileform auth={auth} />
+      <Profileform auth={auth} addProfile={addprofile} />
       {modal && <Dpmodal showmodal={setmodal} dpUpdateState={updateDP} />}
     </>
   );
@@ -33,6 +34,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   updateDP,
+  addprofile,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(index);
