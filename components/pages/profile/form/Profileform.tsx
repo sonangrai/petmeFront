@@ -39,6 +39,7 @@ const Profileform = ({ auth, addProfile }: Props) => {
   const [submitting, setSubmitting] = useState(false);
   const [data, setdata] = useState<Iprofile>(initialState);
 
+  // Feeding state from redux store profile data
   useEffect(() => {
     const profileData = { ...initialState };
     for (const key in auth.profile) {
