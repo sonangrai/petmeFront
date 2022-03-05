@@ -1,6 +1,6 @@
 # PETME
 
-[!Petme](https://github.com/sonangrai/petmeFront/blob/master/public/logo.svg?raw=true)
+<img src="https://github.com/sonangrai/petmeFront/blob/master/public/logo.svg" alt="Petme"/>
 
 An instagram clone for the pet related social sites.
 Backend is on Nodes Express.
