@@ -6,6 +6,7 @@ import {
   RadioItem,
   RadioLabel,
   RadioRow,
+  Textarea,
 } from "../../../forms/form.styled";
 import { PfItem, Pform, ProfileformBox } from "./Profileform.styled";
 import { useState } from "react";
@@ -17,17 +18,17 @@ import { PrimaryBtn } from "../../../button/Button.styled";
  */
 const Profileform = ({ auth }) => {
   const [data, setdata] = useState({
-    firstname: "",
-    lastname: "",
-    address: "",
-    contact: "",
-    bio: "",
-    gender: "",
-    dob: "",
-    hidenumber: "true",
+    firstname: auth.profile.firstname || "",
+    lastname: auth.profile.lastname || "",
+    address: auth.profile.address || "",
+    contact: auth.profile.contact || "",
+    bio: auth.profile.bio || "",
+    gender: auth.profile.gender || "",
+    dob: auth.profile.dob || "",
+    hidenumber: auth.profile.hidenumber || "true",
   });
 
-  const { firstname, lastname, address, contact, bio, dob, hidenumber } = data;
+  const { firstname, lastname, address, contact, bio, dob } = data;
 
   const onchange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -59,7 +60,7 @@ const Profileform = ({ auth }) => {
         </PfItem>
         <PfItem>
           <FormLabel>Biography</FormLabel>
-          <Input name="bio" value={bio} onChange={onchange} />
+          <Textarea name="bio" value={bio} onChange={onchange}></Textarea>
         </PfItem>
         <PfItem>
           <FormLabel>Gender</FormLabel>
@@ -70,7 +71,6 @@ const Profileform = ({ auth }) => {
                 name="gender"
                 id="genderMale"
                 value="male"
-                defaultValue="Male"
                 onChange={onchange}
               />
               <RadioLabel htmlFor="genderMale">Male</RadioLabel>
@@ -81,7 +81,6 @@ const Profileform = ({ auth }) => {
                 name="gender"
                 id="genderFemale"
                 value="female"
-                defaultValue="Female"
                 onChange={onchange}
               />
               <RadioLabel htmlFor="genderFemale">Female</RadioLabel>
@@ -92,7 +91,6 @@ const Profileform = ({ auth }) => {
                 name="gender"
                 id="genderOther"
                 value="other"
-                defaultValue="other"
                 onChange={onchange}
               />
               <RadioLabel htmlFor="genderOther">Other</RadioLabel>
@@ -101,7 +99,7 @@ const Profileform = ({ auth }) => {
         </PfItem>
         <PfItem>
           <FormLabel>Date of Birth</FormLabel>
-          <Input type="date" name="dob" value={dob} />
+          <Input type="date" name="dob" value={dob} onChange={onchange} />
           <FormHint>Don't keep any fake record.</FormHint>
         </PfItem>
         <PfItem>

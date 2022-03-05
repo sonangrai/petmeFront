@@ -101,3 +101,21 @@ export const RadioLabel = styled.label`
   font-size: 0.8em;
   color: ${({ theme }) => theme.grey};
 `;
+
+/**
+ * TextArea
+ */
+export const Textarea = styled.textarea`
+  border: 1px solid ${({ theme }) => theme.lightGrey};
+  padding: 0.6em 0.8em;
+  border-radius: 2px;
+  transition: 0.3s;
+  color: ${({ theme }) => theme.grey};
+  width: 100%;
+  resize: unset;
+  min-height: 100px;
+  &:focus {
+    border: 1px solid ${({ theme }) => theme.grey};
+    outline: none;
+  }
+`;
