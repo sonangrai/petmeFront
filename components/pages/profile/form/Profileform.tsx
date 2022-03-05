@@ -11,7 +11,7 @@ import {
 import { PfItem, Pform, ProfileformBox } from "./Profileform.styled";
 import { useState, useEffect } from "react";
 import { PrimaryBtn } from "../../../button/Button.styled";
-import { addProfileApi } from "redux/api/profile";
+import { editProfileApi } from "redux/api/profile";
 
 type Props = {
   auth: Iauth;
@@ -58,13 +58,13 @@ const Profileform = ({ auth, addProfile }: Props) => {
   const onsubmit = (e) => {
     e.preventDefault();
     setSubmitting(true);
-    addProfileApi(data).then(
+    editProfileApi(data).then(
       (res) => {
         setSubmitting(false);
         addProfile(res.data);
       },
       (err) => {
-        console.log(err);
+        console.log(err.response);
         setSubmitting(false);
       }
     );

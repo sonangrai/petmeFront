@@ -44,6 +44,7 @@ export const addProfileApi = async (data: Iprofile) => {
  */
 export const editProfileApi = async (data: Iprofile) => {
   const jData = JSON.stringify(data);
+  console.log(data);
   const res = await loggedAxios().put(`${BASEURL}/profile`, jData, jsonConfig);
   return res;
 };
