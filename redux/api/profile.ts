@@ -37,3 +37,13 @@ export const addProfileApi = async (data: Iprofile) => {
   const res = await loggedAxios().post(`${BASEURL}/profile`, jData, jsonConfig);
   return res;
 };
+
+/**
+ *
+ * @param data Edit profile
+ */
+export const editProfileApi = async (data: Iprofile) => {
+  const jData = JSON.stringify(data);
+  const res = await loggedAxios().put(`${BASEURL}/profile`, jData, jsonConfig);
+  return res;
+};
