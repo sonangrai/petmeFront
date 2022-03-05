@@ -4,9 +4,16 @@ import axios from "axios";
 export const BASEURL = process.env.NEXT_PUBLIC_BACKEND_API;
 
 //Config for application json
-export const config = {
+export const jsonConfig = {
   headers: {
     "Content-Type": "application/json",
+  },
+};
+
+//COnfig for multiparty
+export const multiConfig = {
+  headers: {
+    "Content-Type": "multipart/form-data",
   },
 };
 

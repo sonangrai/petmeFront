@@ -1,4 +1,4 @@
-import { BASEURL, loggedAxios, config } from "./utils";
+import { BASEURL, loggedAxios, jsonConfig, multiConfig } from "./utils";
 
 /**
  *
@@ -16,16 +16,24 @@ export const getProfileApi = async () => {
  * @returns Add or Update DP
  */
 export const addupdateDPApi = async (data) => {
-  let config = {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  };
-
   //Creating formdata for image file
   var fd = new FormData();
   fd.append("image", data);
 
-  const res = await loggedAxios().post(`${BASEURL}/profile/dp`, fd, config);
+  const res = await loggedAxios().post(
+    `${BASEURL}/profile/dp`,
+    fd,
+    multiConfig
+  );
+  return res;
+};
+
+/**
+ *
+ * @param data Adds profile
+ */
+export const addProfileApi = async (data: Iprofile) => {
+  const jData = JSON.stringify(data);
+  const res = await loggedAxios().post(`${BASEURL}/profile`, jData, jsonConfig);
   return res;
 };
