@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { config, BASEURL } from "./utils";
+import { jsonConfig, BASEURL } from "./config";
 
 /**
  * Login api
@@ -7,7 +7,7 @@ import { config, BASEURL } from "./utils";
 export const loginApi = async (data) => {
   let jData = JSON.stringify(data);
 
-  let res = await Axios.post(`${BASEURL}/auth/login`, jData, config);
+  let res = await Axios.post(`${BASEURL}/auth/login`, jData, jsonConfig);
   return res;
 };
 
@@ -17,7 +17,7 @@ export const loginApi = async (data) => {
 export const registerApi = async (data) => {
   let jData = JSON.stringify(data);
 
-  let res = await Axios.post(`${BASEURL}/auth`, jData, config);
+  let res = await Axios.post(`${BASEURL}/auth`, jData, jsonConfig);
   return res;
 };
 
@@ -27,6 +27,6 @@ export const registerApi = async (data) => {
 export const activateApi = async (data) => {
   let jData = JSON.stringify(data);
 
-  let res = await Axios.post(`${BASEURL}/auth/activate`, jData, config);
+  let res = await Axios.post(`${BASEURL}/auth/activate`, jData, jsonConfig);
   return res;
 };

@@ -1,4 +1,4 @@
-import { BASEURL, loggedAxios, jsonConfig, multiConfig } from "./utils";
+import { BASEURL, loggedAxios, jsonConfig, multiConfig } from "./config";
 
 /**
  *
