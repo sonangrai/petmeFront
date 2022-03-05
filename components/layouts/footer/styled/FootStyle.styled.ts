@@ -18,6 +18,7 @@ export const FootNav = styled.div`
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid ${({ theme }) => theme.lightGrey};
+  background-color: ${({ theme }) => theme.white};
 `;
 
 /**
