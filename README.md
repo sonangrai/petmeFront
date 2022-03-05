@@ -1,6 +1,6 @@
-# PETME
+# PETGRAM
 
-<img src="https://github.com/sonangrai/petmeFront/blob/master/public/logo.svg" alt="Petme"/>
+<img src="https://github.com/sonangrai/petmeFront/blob/master/public/logo.svg" alt="petgram"/>
 
 An instagram clone for the pet related social sites.
 Backend is on Nodes Express.
