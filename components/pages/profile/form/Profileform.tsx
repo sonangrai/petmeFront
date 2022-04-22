@@ -49,7 +49,16 @@ const Profileform = ({ auth, addProfile }: Props) => {
     return () => {};
   }, [auth.profile]);
 
-  const { firstname, lastname, address, contact, bio, dob } = data;
+  const {
+    firstname,
+    lastname,
+    address,
+    contact,
+    bio,
+    dob,
+    gender,
+    hidenumber,
+  } = data;
 
   const onchange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -103,6 +112,7 @@ const Profileform = ({ auth, addProfile }: Props) => {
                 id="genderMale"
                 value="male"
                 onChange={onchange}
+                checked={gender === "male" ? true : false}
               />
               <RadioLabel htmlFor="genderMale">Male</RadioLabel>
             </RadioItem>
@@ -113,6 +123,7 @@ const Profileform = ({ auth, addProfile }: Props) => {
                 id="genderFemale"
                 value="female"
                 onChange={onchange}
+                checked={gender === "female" ? true : false}
               />
               <RadioLabel htmlFor="genderFemale">Female</RadioLabel>
             </RadioItem>
@@ -123,6 +134,7 @@ const Profileform = ({ auth, addProfile }: Props) => {
                 id="genderOther"
                 value="other"
                 onChange={onchange}
+                checked={gender === "other" ? true : false}
               />
               <RadioLabel htmlFor="genderOther">Other</RadioLabel>
             </RadioItem>
@@ -130,7 +142,12 @@ const Profileform = ({ auth, addProfile }: Props) => {
         </PfItem>
         <PfItem>
           <FormLabel>Date of Birth</FormLabel>
-          <Input type="date" name="dob" value={dob} onChange={onchange} />
+          <Input
+            type="date"
+            name="dob"
+            value={dob.slice(0, 10)}
+            onChange={onchange}
+          />
           <FormHint>Don't keep any fake record.</FormHint>
         </PfItem>
         <PfItem>
@@ -153,6 +170,7 @@ const Profileform = ({ auth, addProfile }: Props) => {
                 id="hideNum"
                 value="true"
                 onChange={onchange}
+                checked={hidenumber ? true : false}
               />
               <RadioLabel htmlFor="hideNum">Hide</RadioLabel>
             </RadioItem>
@@ -163,6 +181,7 @@ const Profileform = ({ auth, addProfile }: Props) => {
                 id="showNum"
                 value="false"
                 onChange={onchange}
+                checked={hidenumber ? false : true}
               />
               <RadioLabel htmlFor="showNum">Show</RadioLabel>
             </RadioItem>
