@@ -16,6 +16,10 @@ body{
     box-sizing: border-box;
 }
 
+textarea{
+    font-family: 'Quicksand', sans-serif;
+}
+
 `;
 
 export default Global;
