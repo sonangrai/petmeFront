@@ -35,6 +35,7 @@ const Loginform = ({ loginDispatch, authData }) => {
           placeholder="Password"
           name="password"
           getData={attachData}
+          autoComplete={true}
         />
         {authData.authenticating ? (
           <PrimaryBtn disabled={true}>Logging...</PrimaryBtn>

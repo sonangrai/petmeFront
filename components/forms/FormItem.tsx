@@ -25,7 +25,13 @@ const Fitem = styled.div`
  * @param {*} param0
  * @returns A form item with input, It will also return data and name type
  */
-const FormItem = ({ type, name, placeholder, getData }) => {
+const FormItem = ({
+  type,
+  name,
+  placeholder,
+  getData,
+  autoComplete = false,
+}) => {
   const [data, setData] = useState("");
 
   const onchange = (e) => {
@@ -45,6 +51,7 @@ const FormItem = ({ type, name, placeholder, getData }) => {
         placeholder={placeholder}
         value={data}
         onChange={onchange}
+        autoComplete={autoComplete ? "on" : "off"}
       />
     </Fitem>
   );
