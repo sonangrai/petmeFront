@@ -8,8 +8,9 @@ import Link from "next/link";
 const CompleteProfile = ({ auth }) => {
   //Checking if the page is edit page or not and also checking profile is not added from state
   if (
-    auth.gettingProfileError.status === 404 ||
-    auth.profile.firstname == undefined
+    // auth.gettingProfileError.status === 404 ||
+    // auth.profile.firstname == undefined
+    !auth
   )
     return (
       <NoProfile>
